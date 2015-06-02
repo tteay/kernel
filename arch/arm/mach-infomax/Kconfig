@@ -1,0 +1,65 @@
+if ARCH_INFOMAX
+
+comment "infomax  SoC Type"
+
+choice
+	prompt "Infomax SoC Type"
+	default ARCH_IM9868
+
+
+config ARCH_IM9828
+	bool "IM9828(not support now)"
+	depends on MMU
+	depends on ARCH_INFOMAX
+	select CPU_ARM926T
+#	select GENERIC_GPIO
+	select GENERIC_TIME
+	select GENERIC_CLOCKEVENTS
+	select ARCH_REQUIRE_GPIOLIB
+#	select COMMON_CLKDEV
+	select ARCH_HAS_CPUFREQ
+	select CLKDEV_LOOKUP
+	select USER_WAKELOCK
+
+config ARCH_IM9868
+	bool "IM9868"
+	select CPU_V7
+	select ARM_AMBA
+	select ARM_GIC
+	select GIC_NON_BANKED
+	select HAVE_ARM_SCU
+	select GENERIC_CLOCKEVENTS
+	#select HAVE_SMP
+	#select ARCH_REQUIRE_GPIOLIB
+	#select ARCH_HAS_CPUFREQ
+	#select CLKDEV_LOOKUP
+	#select GENERIC_TIME
+endchoice
+
+
+menu "Infomax Board Type"
+
+config MACH_9828_V2
+	depends on ARCH_INFOMAX
+	depends on ARCH_IM9828
+	bool "IM9828_v2"
+	help
+	  Support for the infomax IM9828_V2 board.
+
+config MACH_9828_V3
+	depends on ARCH_INFOMAX
+	depends on ARCH_IM9828
+	bool "IM9828_v3"
+	help
+	  Support for the infomax IM9828_V3 board.
+
+config MACH_9868_V1
+	depends on ARCH_INFOMAX
+	depends on ARCH_IM9868
+	bool "IM9868_v1"
+	help
+	  Support for the infomax IM9868_V1 board.
+
+endmenu
+
+endif

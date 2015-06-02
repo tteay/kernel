@@ -3,7 +3,8 @@
 #
 
 obj-$(CONFIG_SERIAL_8250)		+= 8250.o
-8250-y					:= 8250_core.o
+8250-y					= 8250_core.o
+8250-$(CONFIG_IM_UART_DMA)          += uart_dma.o
 8250-$(CONFIG_SERIAL_8250_PNP)		+= 8250_pnp.o
 8250-$(CONFIG_SERIAL_8250_DMA)		+= 8250_dma.o
 obj-$(CONFIG_SERIAL_8250_GSC)		+= 8250_gsc.o

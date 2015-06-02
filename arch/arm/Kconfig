@@ -864,6 +864,10 @@ config ARCH_OMAP1
 	help
 	  Support for older TI OMAP1 (omap7xx, omap15xx or omap16xx)
 
+config ARCH_INFOMAX
+	bool "Infomax platform"
+	help
+	  Support for Infomax 9828,9868.
 endchoice
 
 menu "Multiple platform selection"
@@ -937,6 +941,8 @@ source "arch/arm/mach-footbridge/Kconfig"
 source "arch/arm/mach-gemini/Kconfig"
 
 source "arch/arm/mach-highbank/Kconfig"
+
+source "arch/arm/mach-infomax/Kconfig"
 
 source "arch/arm/mach-integrator/Kconfig"
 

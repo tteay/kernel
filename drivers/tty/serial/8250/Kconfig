@@ -96,6 +96,11 @@ config FIX_EARLYCON_MEM
 	depends on X86
 	default y
 
+config IM_UART_DMA
+    bool "infomax uart use dma"
+    depends on SERIAL_8250
+    default n
+
 config SERIAL_8250_GSC
 	tristate
 	depends on SERIAL_8250 && GSC

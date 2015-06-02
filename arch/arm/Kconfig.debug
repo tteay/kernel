@@ -673,7 +673,7 @@ config DEBUG_LL_INCLUDE
 
 config DEBUG_UNCOMPRESS
 	bool
-	default y if ARCH_MULTIPLATFORM && DEBUG_LL && \
+	default y if (ARCH_MULTIPLATFORM ||ARCH_IM9868) && DEBUG_LL && \
 		     !DEBUG_OMAP2PLUS_UART && \
 		     !DEBUG_TEGRA_UART
 
